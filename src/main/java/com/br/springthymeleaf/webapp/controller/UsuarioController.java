@@ -47,7 +47,7 @@ public class UsuarioController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/novoCadastro", method = RequestMethod.GET)
+	@RequestMapping(value = "novoCadastro", method = RequestMethod.GET)
 	public ModelAndView novoCadastro(Model model) {
 
 		/* LISTA DE GRUPOS QUE VAMOS MOSTRAR NA PÁGINA */
@@ -68,7 +68,7 @@ public class UsuarioController {
 	 * @param redirectAttributes
 	 * @return
 	 */
-	@RequestMapping(value = "/salvarUsuario", method = RequestMethod.POST)
+	@RequestMapping(value = "salvarUsuario", method = RequestMethod.POST)
 	public ModelAndView salvarUsuario(@ModelAttribute @Valid UsuarioModel usuarioModel, final BindingResult result,
 			Model model, RedirectAttributes redirectAttributes) {
 
@@ -136,7 +136,7 @@ public class UsuarioController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/consultar", method = RequestMethod.GET)
+	@RequestMapping(value = "consultar", method = RequestMethod.GET)
 	public ModelAndView consultar(Model model) {
 
 		/* CONSULTA USUÁRIOS CADASTRADOS */
@@ -155,7 +155,7 @@ public class UsuarioController {
 	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
 	public ModelAndView excluir(@RequestParam("codigoUsuario") Long codigoUsuario) {
 
-		ModelAndView modelAndView = new ModelAndView("redirect:/usuario/consultar");
+		ModelAndView modelAndView = new ModelAndView("redirect:usuario/consultar");
 
 		/* EXCLUINDO O REGISTRO */
 		this.usuarioService.excluir(codigoUsuario);
